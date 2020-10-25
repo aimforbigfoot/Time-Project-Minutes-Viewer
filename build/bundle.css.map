@@ -1,0 +1,14 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "App.svelte",
+    "Block.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\n\timport Block from \"./Block.svelte\";\n\tlet timeBlock = [];\n\tlet gMins;\n\tfunction decideTime() {\n\t\tlet date = new Date();\n\t\tconsole.log(date)\n\t\tlet mins = ( 1440 - (date.getMinutes() + (date.getHours() * 60))) / 15 ;\n\t\tgMins = mins;\n\t\t\n\t\tconsole.log(mins)\n\t\tfor ( let i = 96; i > 0; i--){\n\t\t\ttimeBlock.push(i)\t\n\t\t}\n\t}\n\tdecideTime();\n</script>\n\n\n<style>\n\t*{\n\t\tpadding: 0;\n\t\tmargin: 0;\n\t\tbackground-color: #121921;\n\t\tcolor : whitesmoke;\n\t}\n\tmain{\n\t\tdisplay: inline;\n\t\tjustify-content: center;\n\t}\n\tbody{\n\t\tbackground-color: #121921;\n\t\t}\n\t.title{\n\t\tfont-size: 3.5em;\t\n\t\ttext-align: center;\n\t\tpadding-top: 1em;\n\t\tpadding-bottom: 2em;\n\t}\n\t.house-div{\n\t\tdisplay: flex;\n\t\tjustify-content: center;\n\t\tflex-wrap: wrap;\n\t\tpadding-left: 2em;\n\t\tpadding-right: 2em;\n\t}\n</style>\n\n<body>\n\t<main>\n\t\t<h1 class=\"title\">A new way to look at time</h1>\n\t\t<div class=\"house-div\">\n\t\t\t{#each timeBlock as block,i }\n\t\t\t{#if block > gMins}\n\t\t\t<Block state=\"{i}\" color=\"black\"></Block>\n\t\t\t<!-- {:else if block == gMins}\n\t\t\t<Block state=\"{i}\" color=\"red\"></Block> -->\n\t\t\t{:else}\n\t\t\t<Block state=\"{i}\" color=\"white\"></Block>\n\t\t\t{/if}\n\t\t\t{/each}\n\t\t</div>\n\n\t</main>\n</body>",
+    "<script>\r\n    export let state;\r\n    export let color;\r\n</script>\r\n\r\n<style>\r\n    div{\r\n         width:100px !important; \r\n        height: 100px !important;\r\n        text-align: center;\r\n        align-items: center;\r\n        vertical-align:middle;\r\n    }\r\n    .black{\r\n        background-color: black;\r\n    }\r\n    .red{\r\n        background-color: red;\r\n    }\r\n    .white{\r\n        background-color: white;\r\n    }\r\n</style>\r\n\r\n<div class=\"{color}\">{state}</div>"
+  ],
+  "names": [],
+  "mappings": "AAoBC,cAAC,CAAC,AACD,OAAO,CAAE,CAAC,CACV,MAAM,CAAE,CAAC,CACT,gBAAgB,CAAE,OAAO,CACzB,KAAK,CAAG,UAAU,AACnB,CAAC,AACD,kBAAI,CAAC,AACJ,OAAO,CAAE,MAAM,CACf,eAAe,CAAE,MAAM,AACxB,CAAC,AACD,kBAAI,CAAC,AACJ,gBAAgB,CAAE,OAAO,AACzB,CAAC,AACF,oBAAM,CAAC,AACN,SAAS,CAAE,KAAK,CAChB,UAAU,CAAE,MAAM,CAClB,WAAW,CAAE,GAAG,CAChB,cAAc,CAAE,GAAG,AACpB,CAAC,AACD,wBAAU,CAAC,AACV,OAAO,CAAE,IAAI,CACb,eAAe,CAAE,MAAM,CACvB,SAAS,CAAE,IAAI,CACf,YAAY,CAAE,GAAG,CACjB,aAAa,CAAE,GAAG,AACnB,CAAC;ACvCE,kBAAG,CAAC,AACC,MAAM,KAAK,CAAC,UAAU,CACvB,MAAM,CAAE,KAAK,CAAC,UAAU,CACxB,UAAU,CAAE,MAAM,CAClB,WAAW,CAAE,MAAM,CACnB,eAAe,MAAM,AACzB,CAAC,AACD,qBAAM,CAAC,AACH,gBAAgB,CAAE,KAAK,AAC3B,CAAC,AACD,mBAAI,CAAC,AACD,gBAAgB,CAAE,GAAG,AACzB,CAAC,AACD,qBAAM,CAAC,AACH,gBAAgB,CAAE,KAAK,AAC3B,CAAC"
+}
